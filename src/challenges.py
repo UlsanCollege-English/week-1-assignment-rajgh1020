@@ -135,4 +135,4 @@ def last_index(nums: Sequence[T], target: T) -> Optional[int]:
         idx += 1
     return last
     # TODO: implement
-    # raise NotImplementedError
+    raise NotImplementedErrors
