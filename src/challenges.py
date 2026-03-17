@@ -1,17 +1,3 @@
-"""
-Week 1 — Intro Challenges
-
-Rules:
-- Implement the functions below.
-- Do NOT change function names or parameters (tests depend on them).
-- Keep solutions readable and simple.
-- Stdlib only.
-
-Tip:
-Run tests from repo root:
-    pytest -q
-"""
-
 from __future__ import annotations
 
 from collections.abc import Iterable, Sequence
@@ -21,118 +7,31 @@ T = TypeVar("T")
 
 
 def add(a: int, b: int) -> int:
-    """
-    Return the sum of two integers.
-
-    Examples:
-        add(2, 3) -> 5
-        add(-1, 1) -> 0
-
-    Complexity:
-        Time: O(1)
-        Space: O(1)
-    """
-    # TODO: implement
-    return a+b
-    # raise NotImplementedError
-
+    return a + b
 
 
 def is_even(n: int) -> bool:
-    """
-    Return True if n is even, otherwise False.
-
-    Notes:
-    - Works for negative numbers too (Python's % handles this nicely).
-
-    Examples:
-        is_even(0) -> True
-        is_even(7) -> False
-        is_even(-4) -> True
-
-    Complexity:
-        Time: O(1)
-        Space: O(1)
-    """
-    # TODO: implement
-    if n%2==0:
-        return True
-    else:
-        return False
-    # raise NotImplementedError
+    return n % 2 == 0
 
 
 def linear_search(nums: Sequence[T], target: T) -> Optional[int]:
-    """
-    Return the FIRST index where target appears in nums, or None if not found.
-
-    Examples:
-        linear_search([10, 20, 30], 20) -> 1
-        linear_search([1, 2, 3], 9) -> None
-        linear_search([5, 5, 5], 5) -> 0
-
-    Edge cases:
-    - empty list/sequence
-    - duplicates (must return first match)
-    - target not present
-
-    Complexity:
-        Time: O(n) worst-case
-        Space: O(1)
-    """
-    # TODO: implement
-    for n in nums:
-        if target == n:
-            return nums.index(n)
+    for i in range(len(nums)):
+        if nums[i] == target:
+            return i
     return None
-
-    # raise NotImplementedError
 
 
 def count_occurrences(items: Iterable[T], target: T) -> int:
-    """
-    Count how many times target appears in items.
-
-    Examples:
-        count_occurrences([1, 2, 2, 3], 2) -> 2
-        count_occurrences([], 7) -> 0
-
-    Notes:
-    - items is an Iterable: it might be a list, tuple, set, generator, etc.
-
-    Complexity:
-        Time: O(n)
-        Space: O(1)
-    """
-    # TODO: implement
     count = 0
     for item in items:
         if item == target:
-            count += 1  
-    return count 
-    # raise NotImplementedError
+            count += 1
+    return count
 
 
-# Stretch (optional)
 def last_index(nums: Sequence[T], target: T) -> Optional[int]:
-    """
-    Return the LAST index where target appears in nums, or None if not found.
-
-    Examples:
-        last_index([1, 2, 2, 3], 2) -> 2
-        last_index([1, 2, 3], 9) -> None
-        last_index([], 1) -> None
-
-    Complexity:
-        Time: O(n)
-        Space: O(1)
-    """
     last = None
-    idx = 0
-    for num in nums:
-        if num == target:
-            last = idx
-        idx += 1
+    for i in range(len(nums)):
+        if nums[i] == target:
+            last = i
     return last
-    # TODO: implement
-    # raise NotImplementedError
